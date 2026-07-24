@@ -1,7 +1,7 @@
 # ISWC_Graph_Answerability_evaluation
 This repository is created to support the paper for the ISWC conference
 
-This appendix provides the complete SPARQL queries used in the evaluation, together with a candidate SHACL shape derived from the Level C answerability test. The excerpts presented in the main text illustrate the graph patterns under investigation, while the full queries support reproducibility and reuse of the workflow. The SHACL example shows how a recurring structural requirement identified through SPARQL testing can be formalised as a validation warning.
+Here you can find the complete SPARQL queries used in the evaluation, together with a candidate SHACL shape derived from the Level C answerability test. The excerpts presented in the main text illustrate the graph patterns under investigation, while the full queries support reproducibility and reuse of the workflow. The SHACL example shows how a recurring structural requirement identified through SPARQL testing can be formalised as a validation warning.
 
 1. "Level C" Entries
 
