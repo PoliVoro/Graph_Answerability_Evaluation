@@ -85,58 +85,6 @@ WHERE {
 }
 ORDER BY ?parentStatus ?conditionStatus ?regionLabel ?subjectLabel
 ```
-1A. Candidate SHACL Shape for Level C
-
-The candidate shape below identifies Level C components for which the graph records neither a Level B parent object, a condition state, nor an explicit part-removal pattern. It uses warning severity because the absence of these patterns indicates a need for curatorial review rather than an unequivocally invalid record.
-
-```shacl
-@prefix sh:    <http://www.w3.org/ns/shacl#> .
-@prefix crm:   <http://www.cidoc-crm.org/cidoc-crm/> .
-@prefix mss:   <https://sacred-space.com/custom/> .
-@prefix msst:  <https://sacred-space.com/resource/hertziana/type/> .
-@prefix msssh: <https://sacred-space.com/shapes/> .
-
-msssh:LevelCAnswerabilityShape
-    a sh:NodeShape ;
-    sh:targetSubjectsOf mss:has_type ;
-    sh:severity sh:Warning ;
-    sh:sparql [
-        a sh:SPARQLConstraint ;
-        sh:message
-          "No Level B parent, condition state, or unknown-object pattern is recorded." ;
-        sh:select """
-          PREFIX crm:
-            <http://www.cidoc-crm.org/cidoc-crm/>
-          PREFIX mss:
-            <https://sacred-space.com/custom/>
-          PREFIX msst:
-            <https://sacred-space.com/resource/hertziana/type/>
-
-          SELECT $this
-          WHERE {
-            $this mss:has_type msst:level_c .
-
-            FILTER NOT EXISTS {
-              $this crm:P46i_forms_part_of ?object .
-              ?object mss:has_type msst:level_b .
-            }
-
-            FILTER NOT EXISTS {
-              $this crm:P44_has_condition ?condition .
-            }
-
-            FILTER NOT EXISTS {
-              ?removal
-                  a crm:E80_Part_Removal ;
-                  crm:P113_removed $this .
-
-              FILTER NOT EXISTS {
-                ?removal crm:P112_diminished [] .
-              }
-            }
-      
-```
-
 2. Cross-Pattern Queryability with Iconclass
 ```sparql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
