@@ -1,7 +1,7 @@
 # Graph_Answerability_evaluation
 This repository is created to support the paper for the MTSR conference
 
-Here you can find the complete SPARQL queries used in the evaluation, together with a candidate SHACL shape derived from the Level C answerability test. The excerpts presented in the main text illustrate the graph patterns under investigation, while the full queries support reproducibility and reuse of the workflow. The SHACL example shows how a recurring structural requirement identified through SPARQL testing can be formalised as a validation warning.
+This repository contains the complete SPARQL queries used to evaluate competency-question (CQ) answerability in the Mapping Sacred Spaces knowledge graph, alongside candidate SHACL warnings derived from the Level C evaluation. The queries examine semantic connectivity and distinguish explicitly documented scholarly uncertainty from relationships that are not retrievable. The SHACL examples demonstrate how recurring patterns of potentially incomplete representation can be flagged for curatorial review, without treating absent relationships as automatic metadata errors. These constraints remain exploratory and require further refinement and evaluation within curatorial workflows.
 
 1. "Level C" Entries
 
